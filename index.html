@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Animation AOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Color theme palette -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffe5d9',
+                        secondary: '#ffcad4',
+                        accent: '#f4acb7',
+                        dark: '#9d8189',
+                    },
+                    fontFamily: {
+                        'broadway': ['Broadway', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-primary min-h-screen flex items-center justify-center p-4 transition-colors duration-300 dark:bg-gray-900">
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle"
+        class="theme-toggle bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+        <i class="fas fa-moon text-gray-800 dark:text-yellow-400"></i>
+    </button>
+
+    <div class="container max-w-2xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300"
+            data-aos="fade-up" data-aos-duration="800">
+            <!-- Form Header -->
+            <div class="bg-gradient-to-r from-secondary to-accent dark:from-gray-700 dark:to-gray-800 p-6 text-center">
+                <h1 class="font-broadway text-4xl text-dark dark:text-white">Feedback Form</h1>
+                <p class="text-dark/80 dark:text-gray-300 mt-2">We value your opinion</p>
+            </div>
+
+            <!-- Form Content -->
+            <form id="feedbackForm" class="p-8 space-y-6">
+                <div data-aos="fade-right" data-aos-delay="100">
+                    <label for="name"
+                        class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                    <input type="text" id="name" placeholder="Enter Your Name"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300">
+                </div>
+                <div data-aos="fade-left" data-aos-delay="150">
+                    <label for="fname" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Father
+                        Name</label>
+                    <input type="text" id="fname" placeholder="Enter Your Father Name"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300">
+                </div>
+                <div data-aos="fade-right" data-aos-delay="200">
+                    <label class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Gender</label>
+                    <div class="flex space-x-6">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="female"
+                                class="h-5 w-5 text-accent focus:ring-accent border-gray-300 dark:border-gray-600">
+                            <span class="ml-2 text-gray-700 dark:text-gray-300">Female</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="male"
+                                class="h-5 w-5 text-accent focus:ring-accent border-gray-300 dark:border-gray-600">
+                            <span class="ml-2 text-gray-700 dark:text-gray-300">Male</span>
+                        </label>
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="250">
+                    <label for="date" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Date &
+                        Time</label>
+                    <input type="datetime-local" id="date"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300">
+                </div>
+                <div data-aos="fade-right" data-aos-delay="300">
+                    <label for="rating"
+                        class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</label>
+                    <select id="rating"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300">
+                        <option value="select">Select</option>
+                        <option value="1">Poor</option>
+                        <option value="2">Fine</option>
+                        <option value="3">Good</option>
+                        <option value="4">Too Good</option>
+                        <option value="5">Welldone</option>
+                    </select>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="350">
+                    <label for="message"
+                        class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                    <textarea id="message" cols="30" rows="5" placeholder="Enter your Message"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"></textarea>
+                </div>
+                <div data-aos="zoom-in" >
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-secondary to-dark hover:from-accent hover:to-secondary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                        Submit Feedback
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- AOS and Theme Toggle Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800
+        });
+    </script>
+    <!-- Our JS -->
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
