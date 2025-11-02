@@ -9,11 +9,12 @@
 
 body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .form-container {
@@ -227,3 +228,4 @@ body {
     flex-direction: column;
   }
 }
+
