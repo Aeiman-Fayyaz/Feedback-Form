@@ -73,34 +73,48 @@ feedbackForm.addEventListener("submit", (e) => {
   })
     .then(() => {
       if (!name || !message || !gender) {
-        alert("Please Fill All Fields");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Fill all fields",
+        });
         return;
       }
-      alert("Thank you for your feedback");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Thanks for your feedback",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       feedbackForm.reset();
     })
     .catch((error) => {
-      alert("Error", error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.message,
+      });
     });
 });
 
 // Show Feedbacks on Screen
-const feedbackContainer = document.getElementById("feedbackContainer")
+const feedbackContainer = document.getElementById("feedbackContainer");
 
 // Listen for new feedbacks
-onChildAdded(ref(db , "feedback") , (snapshot) => {
-  const data = snapshot.val()
-  displayFeedback(data)
-})
+onChildAdded(ref(db, "feedback"), (snapshot) => {
+  const data = snapshot.val();
+  displayFeedback(data);
+});
 
-function displayFeedback(data){
-  const box = document.createElement("div")
-  box.classList.add("feedback-box")
+function displayFeedback(data) {
+  const box = document.createElement("div");
+  box.classList.add("feedback-box");
   box.innerHTML = `
   <h4>${data.name}</h4>
   <p><strong>Rating:</strong> ${data.rating}</p>
   <p>${data.date}</p>
   <p>${data.message}</p>
-  `
-  feedbackContainer.appendChild(box)
+  `;
+  feedbackContainer.appendChild(box);
 }
